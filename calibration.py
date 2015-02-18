@@ -40,12 +40,12 @@ print p1
 
 X=data['entryoffsets']/data['vol']
 Y=data['vol']
-X,Y= np.meshgrid(X,Y)
+#X,Y= np.meshgrid(X,Y)
 Z =  map(price,Y,X)
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 fig.set_size_inches(12.5,7.5)
-surf = ax.plot_surface(X, Y*1e3, Z, rstride=1, cstride=1, cmap=cm.hot_r,linewidth=0, antialiased=True)
+surf = ax.plot_trisurf(X, Y*1e3, Z,cmap=cm.hot_r,linewidth=0, antialiased=True)
 ax.zaxis.set_major_locator(LinearLocator(10))
 ax.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
 fig.colorbar(surf, shrink=0.5, aspect=10)
